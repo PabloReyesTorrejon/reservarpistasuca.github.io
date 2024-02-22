@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserva de pistas deportivas en la Universidad de Cádiz">
+    <title>Formulario de Reserva de Sala</title>
+</head>
+<body>
+    <h1>Reservar una pista</h1>
+    <!--Formulario con datos para la reserva-->
+    <form action="#" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required><br>
+
+        <label for="deporte">Deporte:</label>
+        <select id="deporte" name="deporte" required>
+            <option value="">Seleccione un deporte</option>
+            <option value="Fútbol">Sala de Reuniones</option>
+            <option value="Tenis">Auditorio</option>
+            <option value="Pádel">Sala de Conferencias</option>
+            <option value="Piscina">Sala de Conferencias</option>
+        </select><br>
+
+        <label for="numPersonas">Número de Personas:</label>
+        <input type="number" id="numPersonas" name="numPersonas" min="1" required><br>
+
+        <label for="fechaReserva">Fecha de Reserva:</label>
+        <input type="date" id="fechaReserva" name="fechaReserva" required><br>
+
+        <input type="submit" value="Consultar salas">
+    </form>
+    <footer>
+        <img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
+        <img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
+        <img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
+        <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
