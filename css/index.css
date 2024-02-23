@@ -14,9 +14,12 @@ body {
 /* Estilos para el encabezado */
 
 .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 15%;
     position: relative;
-    z-index: 1;
-    height: 200px;
 }
 
 .header::before {
@@ -25,19 +28,40 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-image: url('../img/futbol.jpg');
     background-size: cover;
     background-position: 50% 40%;
-    filter: blur(3px);
+    filter: blur(5px);
     z-index: -1;
 }
 
-
 .header h1 {
-    margin: 0;
+    position: relative;
+    text-align: center;
+    font-size: 52px;
+    z-index: 1;
 }
 
+.header ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.header ul li {
+    margin: 0 30px;
+}
+.navbar{
+    height: 50px;
+    background-color: #22B698;
+    padding: 10px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* Estilos para la sección de contenido principal */
 .main-content {
     display: flex;
@@ -60,7 +84,23 @@ body {
 /* Estilos para el pie de página */
 .footer {
     background-color: #f8f9fa;
+    text-align: center;
     padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.footer p {
+    color: #6c757d;
+    font-size: 14px;
 }
 
 /* Media queries para diseño responsive */
