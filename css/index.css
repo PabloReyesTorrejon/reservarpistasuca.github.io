@@ -1,14 +1,29 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
+    
+    /*overflow: auto;*/
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-family: "Poppins", sans-serif;
+}
+p{
+    font-family: "Poppins", sans-serif;
+}
+button{
+    font-family: "Poppins", sans-serif;
 }
 
 .container {
-    max-width: 1200px;
+    width: 100%;
     margin: auto;
     padding: 20px;
+    background-color: #f5f5f5;
 }
 
 /* Estilos para el encabezado */
@@ -18,7 +33,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 15%;
+    height: 40vh;
     position: relative;
 }
 
@@ -32,7 +47,7 @@ body {
     background-image: url('../img/futbol.jpg');
     background-size: cover;
     background-position: 50% 40%;
-    filter: blur(5px);
+    filter: brightness(0.5) contrast(1.2) opacity(0.8);
     z-index: -1;
 }
 
@@ -41,8 +56,16 @@ body {
     text-align: center;
     font-size: 52px;
     z-index: 1;
+    color: white;
 }
 
+.header h2{
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+    z-index: 1;
+    color: white;
+}
 .header ul {
     list-style: none;
     padding: 0;
@@ -50,7 +73,10 @@ body {
     display: flex;
     justify-content: center;
 }
-.header ul li {
+.header ul li a{
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
     margin: 0 30px;
 }
 .navbar{
@@ -61,20 +87,92 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: auto;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown .dropdown-content a {
+    color: black;
+    font-size: 15px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    background-color: #22B698;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 /* Estilos para la sección de contenido principal */
-.main-content {
+/*Estilo para reservar*/
+
+.main-reservar {
+    /*display: flex;*/
+    flex-wrap: wrap;
+    justify-content: space-around; /* Alinea las tarjetas horizontalmente con espacio alrededor */
+    align-items: space-around; /* Alinea las tarjetas verticalmente con espacio alrededor */
+}
+.main-reservar .cards{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card {
+    flex: 0 0 30%; /* Las tarjetas ocuparán el 30% del ancho del contenedor */
+    margin: 1.5%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card button {
+    background-color: #22B698;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.card button:hover {
+    background-color: #308B79;
+}
+.card button:active {
+    background-color: #316157;
+}
+.main-content {
+    display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    flex-wrap: wrap;
 }
-
-.main-content .article {
-    width: 48%;
-    margin-bottom: 20px;
-}
-
 /* Estilos para la barra lateral */
 .sidebar {
     width: 30%;
@@ -83,7 +181,6 @@ body {
 
 /* Estilos para el pie de página */
 .footer {
-    background-color: #f8f9fa;
     text-align: center;
     padding: 20px;
     position: fixed;

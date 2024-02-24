@@ -15,27 +15,59 @@
     <div class="header">
         <!--Título-->
         <h1>Reserva de Pistas Deportivas</h1>
+        <h2>Elige uno de nuestros deportes, reserva y juega ¡Así de fácil!</h2>
         <!--Barra Navegación-->
         <nav class="navbar">
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Inicio</a>
+                    <div class="dropdown-content">
+                        <a href="#reservar">Reservar Pista</a>
+                        <a href="#tarjeta">Tarjeta Deportiva</a>
+                        <a href="#descuentos">Descuentos</a>
+                        <a href="#noticias"></a>
+                    </div>
+                </li>
                 <li><a href="#">Universidad de Cádiz</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Torneos</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Contacto</a>
+                    <div class="dropdown-content">
+                        <a href="#">Opción 1</a>
+                        <a href="#">Opción 2</a>
+                        <a href="#">Opción 3</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </div>
-    
-
-    
-
+    <!--Contenido principal-->
     <main class="container">
         <!--Seccion reserva de pistas-->
-        <article class="main-content">
-            <h2>¡Reserva ya tu pista deportiva favorita!</h2>
-            <p><a href="#">Elige y reserva</a></p>
+        <article class="main-reservar" id="reservar">
+            <h2>Reservar una pista</h2>
+            <h3>Nuestras pistas más destacadas</h3>
+            <div class="cards">
+                <div class="card">
+                    <img src="../img/tenis.jpg" alt="Tenis">
+                    <p>Pistas de tenis</p>
+                    <button>Reservar</button>
+                </div>
+                <div class="card">
+                    <img src="../img/padel.jpg" alt="Padel">
+                    <p>Pistas de pádel</p>
+                    <button>Reservar</button>
+                </div>
+                <div class="card">
+                    <img src="../img/piscina.jpg" alt="Piscina">
+                    <p>Piscina</p>
+                    <button>Reservar</button>
+                </div>
+            </div>
+            <a href="../html/reserva.html">Quiero elegirla yo</a>
         </article>
-        <aside class="sidebar">
+        <aside class="sidebar" id="noticias">
             <!--Seccion noticias-->
             <h3>Noticias relacionadas</h3>
             <ul>
@@ -45,12 +77,12 @@
             </ul>
         </aside>
         <!--Seccion tarjeta deportiva-->
-        <aside class="sidebar">
+        <aside class="sidebar" id="tarjeta">
             <h2>Consigue la tarjeta deportiva</h2>
             <p><a href="#">Haz click aquí</a></p>
         </aside>
         <!--Seccion descuentos-->
-        <aside class="sidebar">
+        <aside class="sidebar" id="descuentos">
             <h3>Descuentos para estudiantes</h3>
             <ul>
                 <li><a href="#">...</a></li>
@@ -58,14 +90,15 @@
                 <li><a href="#">...</a></li>
             </ul>
         </aside>
+            <!--Iconos de redes sociales-->
+        <footer class="footer">
+            <img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
+            <img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
+            <img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
+            <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
+        </footer>
     </main>
     
-    <!--Iconos de redes sociales-->
-    <footer class="footer">
-        <img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
-        <img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
-        <img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
-        <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
-    </footer>
+
 </body>
 </html>
