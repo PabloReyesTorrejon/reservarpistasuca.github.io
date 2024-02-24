@@ -1,9 +1,13 @@
 /* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
-    
     /*overflow: auto;*/
 }
 h2{
@@ -120,7 +124,7 @@ button{
 .dropbtn {
     background-color: #22B698;
     color: white;
-    padding: 16px;
+    padding: 5px 5px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -133,6 +137,8 @@ button{
     flex-wrap: wrap;
     justify-content: space-around; /* Alinea las tarjetas horizontalmente con espacio alrededor */
     align-items: space-around; /* Alinea las tarjetas verticalmente con espacio alrededor */
+    margin-left: 20px;
+    margin-right: 30px;
 }
 .main-reservar .cards{
     display: flex;
@@ -168,15 +174,22 @@ button{
 .card button:active {
     background-color: #316157;
 }
-.main-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+
 /* Estilos para la barra lateral */
 .sidebar {
-    width: 30%;
+    width: 100%;
     margin-left: 20px;
+    margin-right: 30px;
+}
+.sidebar .foto_tarjeta{
+    text-align: center;
+}
+.sidebar img {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    float: none;
+    
 }
 
 /* Estilos para el pie de página */
