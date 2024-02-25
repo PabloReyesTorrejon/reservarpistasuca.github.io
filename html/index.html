@@ -18,28 +18,31 @@
         <h2>Elige uno de nuestros deportes, reserva y juega ¡Así de fácil!</h2>
         <!--Barra Navegación-->
         <nav class="navbar">
-            <ul>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Inicio</a>
-                    <div class="dropdown-content">
-                        <a href="#reservar">Reservar Pista</a>
-                        <a href="#tarjeta">Tarjeta Deportiva</a>
-                        <a href="#descuentos">Descuentos</a>
-                        <a href="#noticias"></a>
-                    </div>
-                </li>
-                <li><a href="#">Universidad de Cádiz</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Torneos</a></li>
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Contacto</a>
-                    <div class="dropdown-content">
-                        <a href="#">Opción 1</a>
-                        <a href="#">Opción 2</a>
-                        <a href="#">Opción 3</a>
-                    </div>
-                </li>
-            </ul>
+            <button class="hamburger">&#9776;</button>
+            <div class="navbar-items">
+                <ul>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="this.classList.toggle('active');">Inicio</button>
+                        <div class="dropdown-content">
+                            <a href="#reservar">Reservar Pista</a>
+                            <a href="#tarjeta">Tarjeta Deportiva</a>
+                            <a href="#descuentos">Descuentos</a>
+                            <a href="#noticias"></a>
+                        </div>
+                    </li>
+                    <li><a href="#">Universidad de Cádiz</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Torneos</a></li>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="this.classList.toggle('active');">Contacto</button>
+                        <div class="dropdown-content">
+                            <a href="#">Opción 1</a>
+                            <a href="#">Opción 2</a>
+                            <a href="#">Opción 3</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> 
         </nav>
     </div>
     <!--Contenido principal-->
@@ -78,16 +81,17 @@
         </aside>
         <!--Seccion descuentos-->
         <aside class="sidebar" id="descuentos">
-            <h3>Descuentos para estudiantes</h3>
+            <h2>Descuentos para estudiantes</h2>
+            <h3>¡Sácale partido a tu tarjeta!</h3>
             <ul>
-                <li><a href="#">...</a></li>
-                <li><a href="#">...</a></li>
-                <li><a href="#">...</a></li>
+                <li><a href="#">Descuentos en pistas</a></li>
+                <li><a href="#">Descuentos en gimnnasio</a></li>
+                <li><a href="#">Otros descuentos</a></li>
             </ul>
         </aside>
         <aside class="sidebar" id="noticias">
             <!--Seccion noticias-->
-            <h3>Noticias relacionadas</h3>
+            <h2>Noticias relacionadas</h2>
             <ul>
                 <li><a href="#">Nuevo torneo de tenis en la ciudad</a></li>
                 <li><a href="#">Inauguración de nueva pista de baloncesto</a></li>
@@ -102,7 +106,7 @@
             <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
         </footer>
     </main>
-    
+    <script src="../js/index.js"></script>
 
 </body>
 </html>
