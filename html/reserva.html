@@ -4,43 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Reserva de pistas deportivas en la Universidad de Cádiz">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
     <title>Formulario de Reserva de Sala</title>
 </head>
 <body>
-    <h1>Reservar una pista</h1>
+    <div class="header">
+        <!--Título-->
+        <h1>Reserva de Pistas Deportivas</h1>
+        <h2>Elige uno de nuestros deportes, reserva y juega ¡Así de fácil!</h2>
+        <!--Barra Navegación-->
+        <nav class="navbar">
+            <button class="hamburger">&#9776;</button>
+            <div class="navbar-items">
+                <ul>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="this.classList.toggle('active');">Inicio</button>
+                        <div class="dropdown-content">
+                            <a href="#reservar">Reservar Pista</a>
+                            <a href="#tarjeta">Tarjeta Deportiva</a>
+                            <a href="#descuentos">Descuentos</a>
+                            <a href="#noticias"></a>
+                        </div>
+                    </li>
+                    <li><a href="#">Universidad de Cádiz</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Torneos</a></li>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="this.classList.toggle('active');">Contacto</button>
+                        <div class="dropdown-content">
+                            <a href="#">Opción 1</a>
+                            <a href="#">Opción 2</a>
+                            <a href="#">Opción 3</a>
+                        </div>
+                    </li>
+                </ul>
+            </div> 
+        </nav>
+    </div>
+    <!--Contenido principal-->
+    <main class="container">
+        <h1>Reservar una pista</h1>
     <!--Formulario con datos para la reserva-->
-    <form action="#" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br>
+        <form action="#" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required><br>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required><br>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required><br>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br>
 
-        <label for="deporte">Deporte:</label>
-        <select id="deporte" name="deporte" required>
-            <option value="">Seleccione un deporte</option>
-            <option value="Fútbol">Sala de Reuniones</option>
-            <option value="Tenis">Auditorio</option>
-            <option value="Pádel">Sala de Conferencias</option>
-            <option value="Piscina">Sala de Conferencias</option>
-        </select><br>
+            <label for="deporte">Deporte:</label>
+            <select id="deporte" name="deporte" required>
+                <option value="">Seleccione un deporte</option>
+                <option value="Fútbol">Sala de Reuniones</option>
+                <option value="Tenis">Auditorio</option>
+                <option value="Pádel">Sala de Conferencias</option>
+                <option value="Piscina">Sala de Conferencias</option>
+            </select><br>
 
-        <label for="numPersonas">Número de Personas:</label>
-        <input type="number" id="numPersonas" name="numPersonas" min="1" required><br>
+            <label for="numPersonas">Número de Personas:</label>
+            <input type="number" id="numPersonas" name="numPersonas" min="1" required><br>
 
-        <label for="fechaReserva">Fecha de Reserva:</label>
-        <input type="date" id="fechaReserva" name="fechaReserva" required><br>
+            <label for="fechaReserva">Fecha de Reserva:</label>
+            <input type="date" id="fechaReserva" name="fechaReserva" required><br>
 
-        <input type="submit" value="Consultar salas">
-    </form>
-    <footer>
-        <img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
-        <img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
-        <img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
-        <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
-    </footer>
+            <input type="submit" value="Consultar salas">
+        </form>
+        <footer class="footer">
+            <img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
+            <img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
+            <img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
+            <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+    
+    <script src="../js/index.js"></script>
 </body>
 </html>
