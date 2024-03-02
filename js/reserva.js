@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var pistas = [
-    {fecha: '2022-01-01', numPersonas: 4, nombre: 'Pista 1'},
-    {fecha: '2022-01-01', numPersonas: 2, nombre: 'Pista 2'},
+    {fecha: '2022-01-01', numPersonas: 4, nombre: 'Pista 1', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Futbol'},
+    {fecha: '2022-01-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Futbol'},
+    {fecha: '2022-01-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Tenis'},
     // Más pistas aquí...
 ];
 
@@ -30,10 +31,10 @@ formulario.addEventListener('submit', function(event) {
     // Aquí puedes obtener los valores de los campos de tu formulario
     var fechaEspecifica = document.querySelector('#fechaReserva').value;
     var numPersonasEspecifico = Number(document.querySelector('#numPersonas').value);
-
+    var deporteEspecifico = document.querySelector('#deporte').value;
     // Filtra las pistas que coinciden con la fecha y el número de personas:
     var pistasFiltradas = pistas.filter(function(pista) {
-        return pista.fecha === fechaEspecifica && pista.numPersonas === numPersonasEspecifico;
+        return pista.fecha === fechaEspecifica && pista.numPersonas === numPersonasEspecifico && pista.tipo === deporteEspecifico;
     });
 
     // Limpia el div por si ya había una tabla o un mensaje
@@ -49,20 +50,36 @@ formulario.addEventListener('submit', function(event) {
     } else {
         // Si hay pistas que coincidan, genera la tabla
         var tabla = document.createElement('table');
+        tabla.style.width = '100%'; // Asegura que la tabla ocupe todo el ancho disponible
 
         // Agrega una fila de encabezado
         var filaEncabezado = document.createElement('tr');
-        var celdaEncabezadoFecha = document.createElement('th');
-        celdaEncabezadoFecha.textContent = 'Fecha';
-        filaEncabezado.appendChild(celdaEncabezadoFecha);
-
-        var celdaEncabezadoNumPersonas = document.createElement('th');
-        celdaEncabezadoNumPersonas.textContent = 'Número de Personas';
-        filaEncabezado.appendChild(celdaEncabezadoNumPersonas);
 
         var celdaEncabezadoNombre = document.createElement('th');
         celdaEncabezadoNombre.textContent = 'Nombre de la Pista';
+        celdaEncabezadoNombre.style.textAlign = 'center'; // Centra el texto en la celda
         filaEncabezado.appendChild(celdaEncabezadoNombre);
+        
+        var celdaEncabezadoFecha = document.createElement('th');
+        celdaEncabezadoFecha.textContent = 'Fecha';
+        celdaEncabezadoFecha.style.textAlign = 'center'; // Centra el texto en la celda
+        filaEncabezado.appendChild(celdaEncabezadoFecha);
+
+        var celdaEncabezadoHoraIni = document.createElement('th');
+        celdaEncabezadoHoraIni.textContent = 'Hora de Inicio';
+        celdaEncabezadoHoraIni.style.textAlign = 'center'; // Centra el texto en la celda
+        filaEncabezado.appendChild(celdaEncabezadoHoraIni);
+
+        var celdaEncabezadoHoraFin = document.createElement('th');
+        celdaEncabezadoHoraFin.textContent = 'Hora de Fin';
+        celdaEncabezadoHoraFin.style.textAlign = 'center'; // Centra el texto en la celda
+        filaEncabezado.appendChild(celdaEncabezadoHoraFin);
+
+        var celdaEncabezadoNumPersonas = document.createElement('th');
+        celdaEncabezadoNumPersonas.textContent = 'Número de Personas';
+        celdaEncabezadoNumPersonas.style.textAlign = 'center'; // Centra el texto en la celda
+        filaEncabezado.appendChild(celdaEncabezadoNumPersonas);
+
 
         // Agrega una celda de encabezado vacía para la columna del botón
         var celdaEncabezadoBoton = document.createElement('th');
@@ -73,19 +90,34 @@ formulario.addEventListener('submit', function(event) {
         pistasFiltradas.forEach(function(pista) {
             var fila = document.createElement('tr');
 
+            var celdaNombre = document.createElement('td');
+            celdaNombre.textContent = pista.nombre;
+            celdaNombre.style.textAlign = 'center'; // Centra el texto en la celda
+            fila.appendChild(celdaNombre);
+
             var celdaFecha = document.createElement('td');
             celdaFecha.textContent = pista.fecha;
+            celdaFecha.style.textAlign = 'center'; // Centra el texto en la celda
             fila.appendChild(celdaFecha);
+
+            var celdaHoraIni = document.createElement('td');
+            celdaHoraIni.textContent = pista.hora_ini;
+            celdaHoraIni.style.textAlign = 'center'; // Centra el texto en la celda
+            fila.appendChild(celdaHoraIni);
+
+            var celdaHoraFin = document.createElement('td');
+            celdaHoraFin.textContent = pista.hora_fin;
+            celdaHoraFin.style.textAlign = 'center'; // Centra el texto en la celda
+            fila.appendChild(celdaHoraFin);
 
             var celdaNumPersonas = document.createElement('td');
             celdaNumPersonas.textContent = pista.numPersonas;
+            celdaNumPersonas.style.textAlign = 'center'; // Centra el texto en la celda
             fila.appendChild(celdaNumPersonas);
 
-            var celdaNombre = document.createElement('td');
-            celdaNombre.textContent = pista.nombre;
-            fila.appendChild(celdaNombre);
-
             var celdaBoton = document.createElement('td');
+            celdaBoton.style.display = 'flex';
+            celdaBoton.style.justifyContent = 'center';
             var boton = document.createElement('button');
             boton.textContent = 'Reservar';
             celdaBoton.appendChild(boton);
