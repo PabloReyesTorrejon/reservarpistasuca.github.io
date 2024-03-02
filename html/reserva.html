@@ -23,15 +23,7 @@
             <button class="hamburger">&#9776;</button>
             <div class="navbar-items">
                 <ul>
-                    <li class="dropdown">
-                        <button class="dropbtn" onclick="this.classList.toggle('active');">Inicio</button>
-                        <div class="dropdown-content">
-                            <a href="#reservar">Reservar Pista</a>
-                            <a href="#tarjeta">Tarjeta Deportiva</a>
-                            <a href="#descuentos">Descuentos</a>
-                            <a href="#noticias"></a>
-                        </div>
-                    </li>
+                    <li><a href="../html/index.html">Inicio</a></li>
                     <li><a href="#">Servicios</a></li>
                     <li><a href="#">Torneos</a></li>
                     <li><a href="https://areadeportes.uca.es/">Área de Deportes de la UCA</a></li>
@@ -50,15 +42,15 @@
     <main class="container">
         <h1>Reservar una pista</h1>
         <!--Formulario con datos para la reserva-->
-        <form action="#" method="post" class="formulario">
+        <form id="consultar-salas" action="#" method="post" class="formulario">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Introduzca su nombre..." required><br>
 
             <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required><br>
+            <input type="email" id="email" name="email" placeholder="example@alum.uca.es"><br>
 
             <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required><br>
+            <input type="tel" id="telefono" name="telefono" placeholder="+34"><br>
 
             <label for="deporte">Deporte:</label>
             <select id="deporte" name="deporte" required>
@@ -76,8 +68,10 @@
             <label for="fechaReserva">Fecha de Reserva:</label>
             <input type="date" id="fechaReserva" name="fechaReserva" required><br>
 
-            <input type="submit" value="Consultar salas">
+            <button type="submit">Consultar Salas</button>
         </form>
+        <!-- Donde se mostrará la tabla -->
+            <div id="tabla"></div>
         <footer class="footer">
             <img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
             <img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
@@ -87,5 +81,6 @@
     </main>
     
     <script src="../js/index.js"></script>
+    <script src="../js/reserva.js"></script>
 </body>
 </html>

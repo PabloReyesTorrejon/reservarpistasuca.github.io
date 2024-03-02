@@ -12,3 +12,22 @@ input, textarea, select {
 	margin-bottom: 2.4ex;
 	box-sizing: border-box;
 }
+
+table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
