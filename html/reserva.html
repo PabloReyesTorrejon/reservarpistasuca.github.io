@@ -24,8 +24,8 @@
             <div class="navbar-items">
                 <ul>
                     <li><a href="../html/index.html">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Torneos</a></li>
+                    <li><a href="../html/salas.html">Servicios</a></li>
+                    <li><a href="../html/torneos.html">Torneos</a></li>
                     <li><a href="https://areadeportes.uca.es/">Área de Deportes de la UCA</a></li>
                     <li class="dropdown">
                         <button class="dropbtn" onclick="this.classList.toggle('active');">Contacto</button>
@@ -53,7 +53,7 @@
             <input type="tel" id="telefono" name="telefono" placeholder="+34"><br>
 
             <label for="deporte">Deporte:</label>
-            <select id="deporte" name="deporte" required>
+            <select id="deporte" name="deporte">
                 <option value="">Seleccione un deporte</option>
                 <option value="Fútbol">Fútbol</option>
                 <option value="Tenis">Tenis</option>
@@ -68,6 +68,9 @@
             <label for="fechaReserva">Fecha de Reserva:</label>
             <input type="date" id="fechaReserva" name="fechaReserva" required><br>
 
+            <label for="horaReserva">Hora de Reserva:</label>
+            <input type="time" id="horaReserva" name="horaReserva"><br>
+
             <button type="submit">Consultar Salas</button>
         </form>
         <!-- Donde se mostrará la tabla -->
@@ -81,6 +84,6 @@
     </main>
     
     <script src="../js/index.js"></script>
-    <script src="../js/reserva.js"></script>
+    <script src="../js/validacion-formulario.js"></script>
 </body>
 </html>
