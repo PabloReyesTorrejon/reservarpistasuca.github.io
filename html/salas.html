@@ -13,7 +13,7 @@
 		<!--Título-->
 		<h1>Pistas Disponibles</h1>
 		<!--Barra Navegación-->
-		<nav>
+		<nav id="navbar">
 			<ul>
 				<li><a href="#">Inicio</a></li>
 				<li><a href="#">Servicios</a></li>
@@ -22,38 +22,63 @@
 			</ul>
 		</nav>
 	</header>
-	<article class="card">
-		<img src="../img/tenis.jpg" alt = "Tenis">
-		<div>
-			<h2>Tenis</h2>
-			<p>Información Basica</p>
-		</div>
-		<table>
-		</table>
-	</article>
-	<article class="card">
-		<img src="../img/futbol.jpg" alt = "Fútbol">
-		<div>
-			<h2>Fútbol</h2>
-			<p>Información Basica</p>
-		</div>
-		<table>
-		</table>
-	</article>
-	<article class="card">
-		<img src="../img/padel.jpg" alt = "Pádel">
-		<div>
-			<h2>Pádel</h2>
-			<p>Información Basica</p>
-		</div>
-		<table>
-		</table>
-	</article>
+	<!--Tarjetas-->
+	<section>
+		<article class="card">
+			<input type="checkbox" id="acc1">
+			<!--Contenido inicial-->
+			<div class="base">
+				<img src="../img/tenis.jpg" alt = "Tenis">
+				<label for="acc1">
+					<h2>Tenis</h2>
+					<p>Información Basica</p>
+				</label>
+			</div>
+			<!--Contenido extra al clicar en la tarjeta-->
+			<div class="extra">
+				<h3>Horarios</h3>
+				<p>Lorem ipsum, dolor sit amet consectetZur adipisicing elit. Pariatur obcaecati quasi debitis molestias neque. Cupiditate, tempore, voluptatibus cumque, impedit eveniet modi corrupti similique voluptates architecto nisi quisquam! Officiis, repellendus possimus?</p>
+				<table>
+				</table>
+			</div>
+		</article>
+		<article class="card">
+			<input type="checkbox" id="acc2">
+			<div class="base">
+				<img src="../img/futbol.jpg" alt = "Fútbol">
+				<label for="acc2">
+					<h2>Fútbol</h2>
+					<p>Información Basica</p>
+				</label>
+			</div>
+			<div class="extra">
+				<p>Horarios</p>
+				<table>
+				</table>
+			</div>
+		</article>
+		<article class="card">
+			<input type="checkbox" id="acc3">
+			<div class="base">
+				<img src="../img/padel.jpg" alt = "Pádel">
+				<label for="acc3">
+					<h2>Pádel</h2>
+					<p>Información Basica</p>
+				</label>
+			</div>
+			<div class="extra">
+				<p>Horarios</p>
+				<table>
+				</table>
+			</div>
+		</article>
+	</section>
 	<footer>
 		<img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
 		<img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
 		<img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
 		<p>Derechos de autor &copy; 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
 	</footer>
+	<script type="text/javascript" src="../js/script_salas.js"></script>
 </body>
 </html>
