@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var mensajeCorreo = document.createElement('p');
     mensajeCorreo.style.color = 'red';
     inputCorreo.parentNode.insertBefore(mensajeCorreo, inputCorreo.nextSibling);
-    inputCorreo.addEventListener('submit', function() {
+    inputCorreo.addEventListener('input', function() {
         if (!/.*@alum.uca.es$/.test(inputCorreo.value)) {
             // Si es así, muestra un mensaje de error
             mensajeCorreo.textContent = 'Sólo para usuarios UCA';
@@ -152,6 +152,8 @@ var pistas = [
     {fecha: '2024-09-01', numPersonas: 4, nombre: 'Pista 1', hora_ini: '09:00', hora_fin: '10:00', tipo: 'Fútbol'},
     {fecha: '2024-09-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Fútbol'},
     {fecha: '2024-09-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Tenis'},
+    {fecha: '2024-09-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '09:00', hora_fin: '10:00', tipo: 'Tenis'},
+    {fecha: '2024-09-01', numPersonas: 4, nombre: 'Pista 3', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Tenis'},
     // Más pistas aquí...
 ];
 
