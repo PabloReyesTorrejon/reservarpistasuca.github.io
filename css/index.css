@@ -122,6 +122,21 @@ a {
     background-color: #308B79;
 }
 
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.sticky ul{
+    margin: 0;
+}
+
+.content{
+    padding-top: 10px;
+}
+
 /* Estilos para el menú desplegable */
 .dropdown {
     position: relative;
@@ -278,6 +293,9 @@ a {
 
     .navbar {
         flex-direction: column;
+    }
+    .content{
+        padding-top: 1px;
     }
 
     .dropdown-content {

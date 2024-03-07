@@ -4,13 +4,31 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body{
-	font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+body {
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
+    /*overflow: auto;*/
 }
+h2{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+h3{
+    font-family: "Poppins", sans-serif;
+    margin-top: 20px;
+}
+p{
+    font-family: "Poppins", sans-serif;
+}
+button{
+    font-family: "Poppins", sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
 
 /* Estilos para el encabezado */
 .header {
@@ -38,7 +56,7 @@ body{
 }
 
 .header h1 {
-    position: relative;
+    position: relative ;
     text-align: center;
     font-size: 52px;
     z-index: 1;
@@ -56,43 +74,47 @@ body{
 .header h1, .header h2 {
     margin-top: 50px; 
 }
-
-h1{
-    font-size: 3em;
-    text-align: center;
-    margin-top: 50px;
-}
-
-h2{
-    font-size: 2em;
-    text-align: center;
-    margin-top: 50px;
-    text-decoration: underline;
-}
-
-/* Barra de navegación */
-ul{
-    list-style-type: none;
-    margin-top: 50px;
+.header ul {
+    list-style: none;
     padding: 0;
-    overflow: hidden;
-    background-color: #308B69;
+    margin: 0;
     display: flex;
-    justify-content: center;
-	flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
-  
-li a{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 10px 50px;
-    text-decoration: none;
+.header ul li a{
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: black;
+    margin: 0 30px;
 }
-  
-li a:hover{
-    background-color: #243632;
+.navbar{
+    height: auto;
+    background-color: #22B698;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+.hamburger {
+    display: none;
+}
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+}
+.navbar-items li a, button{
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+.navbar-items li a:active, button:active {
+    background-color: #316157;
+}
+.navbar-items li a:hover, button:hover {
+    background-color: #308B79;
 }
 
 .sticky{
@@ -107,7 +129,58 @@ li a:hover{
 }
 
 .content{
-    padding-top: 80px;
+    padding-top: 10px;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown .dropdown-content {
+    display: none;
+}
+
+.dropdown .dropbtn.active + .dropdown-content {
+    display: block;
+}
+
+.dropdown .dropdown-content a {
+    color: black;
+    font-size: 15px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropbtn {
+    background-color: #22B698;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+    margin: 0 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+.boton_nav{
+    color:black;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+section{
+    margin: 0px 200px;
+
 }
 
 /* Estilos Texto */
@@ -159,4 +232,41 @@ footer img {
 footer p {
     color: #6c757d;
     font-size: 14px;
+}
+/* Estilos para pantallas de tamaño pequeño*/
+@media (max-width: 390px) and (max-height: 844px) {
+    .hamburger {
+        display: block;
+        background-color: transparent;
+        color: #000; /* Color de las líneas */
+        font-size: 30px; /* Tamaño de las líneas */
+        border: none; /* Elimina el borde del botón */    }
+
+    .navbar-items {
+        display: none;
+        flex-direction: column;
+    }
+    .navbar.responsive {
+        flex-direction: column;
+    }
+    .navbar.responsive .navbar-items {
+        display: flex;
+    }
+    
+    .navbar-items ul {
+        display: block; /* Los elementos de la lista se muestran en bloque, lo que los hace apilarse verticalmente */
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+    .content{
+        padding-top: 1px;
+    }
+
+    .dropdown-content {
+        min-width: 100%;
+    }
+
+
 }
