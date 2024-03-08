@@ -14,5 +14,5 @@ window.addEventListener("scroll", function(){
 function reservar(btn) {
     console.log('Botón Reservar clickeado');
     var deporte = btn.dataset.deporte;
-    window.location.href = 'html/reserva.html?deporte=' + encodeURIComponent(deporte);
+    window.location.href = 'reservarpistasuca.github.io/html/reserva.html?deporte=' + encodeURIComponent(deporte);
 }
