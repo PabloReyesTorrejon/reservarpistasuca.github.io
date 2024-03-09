@@ -16,3 +16,15 @@ function reservar(btn) {
     var deporte = btn.dataset.deporte;
     window.location.href = 'html/reserva.html?deporte=' + encodeURIComponent(deporte);
 }
+// Modo oscuro
+document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+    var contenedor = document.getElementById('container');
+    contenedor.classList.toggle('dark-mode');
+    
+    var boton = document.getElementById('dark-mode-toggle');
+    if (contenedor.classList.contains('dark-mode')) {
+        boton.textContent = '☀️'; // Cambia a un icono de sol en modo oscuro
+    } else {
+        boton.textContent = '🌙'; // Cambia a un icono de luna en modo claro
+    }
+});

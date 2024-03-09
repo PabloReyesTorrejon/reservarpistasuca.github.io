@@ -10,6 +10,7 @@ body {
     padding: 0;
     /*overflow: auto;*/
 }
+
 h2{
     font-size: 30px;
     margin-top: 20px;
@@ -28,11 +29,24 @@ a {
     text-decoration: none;
 }
 
-.container {
+#container {
     width: 100%;
     margin: auto;
     padding: 20px;
     background-color: #f5f5f5;
+    
+}
+
+#container.dark-mode {
+    background-color: black;
+    color: white;
+
+}
+#dark-mode-toggle {
+    background-color: transparent;
+    border: none; /* opcional: elimina el borde del botón */
+    cursor: pointer; /* opcional: cambia el cursor a un puntero cuando se pasa el ratón sobre el botón */
+    margin-left: 0px;
 }
 
 /* Estilos para el encabezado */
@@ -206,6 +220,7 @@ a {
     overflow: hidden;
     text-align: center;
 }
+
 .card img {
     width: 100%;
     height: auto;
@@ -229,6 +244,10 @@ a {
     background-color: #316157;
 }
 
+.dark-mode .card {
+    background-color: white; /* color de fondo para el modo oscuro */
+    color: black;
+}
 /* Estilos para la barra lateral */
 .sidebar {
     width: 100%;
@@ -289,6 +308,8 @@ a {
     
     .navbar-items ul {
         display: block; /* Los elementos de la lista se muestran en bloque, lo que los hace apilarse verticalmente */
+        display: flex;
+        justify-content: flex-end;
     }
 
     .navbar {
