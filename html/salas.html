@@ -44,17 +44,16 @@
 	<!--Tarjetas-->
 	<main id = "container" class="container">
 		<article class="card">
-			<input type="checkbox" id="acc1">
 			<!--Contenido inicial-->
-			<div class="base">
+			<button type="button" aria-expanded="false" class="base" aria-controls="sect1" id="accordion1id">
 				<img src="../img/tenis.jpg" alt = "Tenis">
-				<label for="acc1">
+				<div>
 					<h2>Tenis</h2>
 					<p>Información Basica</p>
-				</label>
-			</div>
+				</div>
+			</button>
 			<!--Contenido extra al clicar en la tarjeta-->
-			<div class="extra">
+			<div id="sect1" class="extra" hidden>
 				<h3>Horarios</h3>
 				<p>Lorem ipsum, dolor sit amet consectetZur adipisicing elit. Pariatur obcaecati quasi debitis molestias neque. Cupiditate, tempore, voluptatibus cumque, impedit eveniet modi corrupti similique voluptates architecto nisi quisquam! Officiis, repellendus possimus?</p>
 				<table>
@@ -62,31 +61,35 @@
 			</div>
 		</article>
 		<article class="card">
-			<input type="checkbox" id="acc2">
-			<div class="base">
-				<img src="../img/futbol.jpg" alt = "Fútbol">
-				<label for="acc2">
+			<!--Contenido inicial-->
+			<button type="button" aria-expanded="false" class="base" aria-controls="sect2" id="accordion2id">
+				<img src="../img/futbol.jpg" alt = "Futbol">
+				<div>
 					<h2>Fútbol</h2>
 					<p>Información Basica</p>
-				</label>
-			</div>
-			<div class="extra">
-				<p>Horarios</p>
+				</div>
+			</button>
+			<!--Contenido extra al clicar en la tarjeta-->
+			<div id="sect2" class="extra" hidden>
+				<h3>Horarios</h3>
+				<p>Lorem ipsum, dolor sit amet consectetZur adipisicing elit. Pariatur obcaecati quasi debitis molestias neque. Cupiditate, tempore, voluptatibus cumque, impedit eveniet modi corrupti similique voluptates architecto nisi quisquam! Officiis, repellendus possimus?</p>
 				<table>
 				</table>
 			</div>
 		</article>
 		<article class="card">
-			<input type="checkbox" id="acc3">
-			<div class="base">
-				<img src="../img/padel.jpg" alt = "Pádel">
-				<label for="acc3">
+			<!--Contenido inicial-->
+			<button type="button" aria-expanded="false" class="base" aria-controls="sect3" id="accordion3id">
+				<img src="../img/padel.jpg" alt = "Padel">
+				<div>
 					<h2>Pádel</h2>
 					<p>Información Basica</p>
-				</label>
-			</div>
-			<div class="extra">
-				<p>Horarios</p>
+				</div>
+			</button>
+			<!--Contenido extra al clicar en la tarjeta-->
+			<div id="sect3" class="extra" hidden>
+				<h3>Horarios</h3>
+				<p>Lorem ipsum, dolor sit amet consectetZur adipisicing elit. Pariatur obcaecati quasi debitis molestias neque. Cupiditate, tempore, voluptatibus cumque, impedit eveniet modi corrupti similique voluptates architecto nisi quisquam! Officiis, repellendus possimus?</p>
 				<table>
 				</table>
 			</div>
