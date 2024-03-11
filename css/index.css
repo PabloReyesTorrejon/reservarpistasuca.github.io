@@ -245,7 +245,7 @@ a {
 }
 
 .dark-mode .card {
-    background-color: white; /* color de fondo para el modo oscuro */
+    background-color: lightgray; /* color de fondo para el modo oscuro */
     color: black;
 }
 /* Estilos para la barra lateral */

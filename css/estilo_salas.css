@@ -49,7 +49,18 @@ a {
     margin-left: 0px;
 }
 
+.dark-mode .card{
+    background-color: #818589;
+    color: white;
 
+}
+
+.dark-mode .card h2{
+    color: white;
+} 
+.dark-mode .card p{
+    color: white;
+} 
 
 /* Estilos para el encabezado */
 .header {
