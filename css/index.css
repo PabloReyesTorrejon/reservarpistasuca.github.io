@@ -24,7 +24,9 @@ p{
 }
 button{
     font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
+
 a {
     text-decoration: none;
 }
@@ -42,6 +44,7 @@ a {
     color: white;
 
 }
+
 #dark-mode-toggle {
     background-color: transparent;
     border: none; /* opcional: elimina el borde del botón */
@@ -72,7 +75,6 @@ a {
     background-position: 50% 40%;
     filter: brightness(0.5) contrast(1.2) opacity(0.8);
     z-index: -1;
-    background-color: black;
 }
 
 .header h1 {
@@ -81,6 +83,7 @@ a {
     font-size: 52px;
     z-index: 1;
     color: white;
+    text-shadow: black 4px 4px;
 }
 
 .header h2{
@@ -89,6 +92,7 @@ a {
     font-size: 24px;
     z-index: 1;
     color: white;
+    text-shadow: black 3px 3px;
 }
 
 .header h1, .header h2 {
@@ -116,6 +120,7 @@ a {
     align-items: center;
     justify-content: center;
     margin-top: auto;
+    font-weight: 600;
 }
 .hamburger {
     display: none;
@@ -149,7 +154,7 @@ a {
 }
 
 .content{
-    padding-top: 10px;
+    padding-top: 100px;
 }
 
 /* Estilos para el menú desplegable */
@@ -199,6 +204,15 @@ a {
 /* Estilos para la sección de contenido principal */
 /*Estilo para reservar*/
 
+main a{
+    font-weight: 600;
+}
+
+.dark-mode a{
+    font-weight: 600;
+    color: #02E0b4;
+}
+
 .main-reservar {
     /*display: flex;*/
     flex-wrap: wrap;
@@ -220,6 +234,7 @@ a {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     text-align: center;
+    font-weight: 600;
 }
 
 .card img {
@@ -228,7 +243,7 @@ a {
 }
 
 .card button {
-    background-color: #22B698;
+    background-color: #308B79;
     color: white;
     padding: 10px 20px;
     margin-top: 10px;
@@ -237,9 +252,11 @@ a {
     border-radius: 15px;
     cursor: pointer;
     display: inline-block;
+        font-size: 20px;
+    font-weight: 600;
 }
 .card button:hover {
-    background-color: #308B79;
+    background-color: #316157;
 }
 .card button:active {
     background-color: #316157;
@@ -283,7 +300,12 @@ a {
 }
 
 .footer p {
-    color: #6c757d;
+    color: #243632;
+    font-size: 14px;
+}
+
+.dark-mode .footer p{
+    color: #02E0b4;
     font-size: 14px;
 }
 

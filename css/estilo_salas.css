@@ -22,6 +22,7 @@ p{
 }
 button{
     font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
 a {
     text-decoration: none;
@@ -50,7 +51,7 @@ a {
 }
 
 .dark-mode .card{
-    background-color: #818589;
+    background-color: #252525;
     color: white;
 
 }
@@ -93,6 +94,7 @@ a {
     font-size: 52px;
     z-index: 1;
     color: white;
+    text-shadow: black 4px 4px;
 }
 
 .header h2{
@@ -101,6 +103,7 @@ a {
     font-size: 24px;
     z-index: 1;
     color: white;
+    text-shadow: black 3px 3px;
 }
 
 .header h1, .header h2 {
@@ -119,6 +122,7 @@ a {
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     color: black;
+    margin: 0 30px;
 }
 .navbar{
     height: auto;
@@ -128,6 +132,7 @@ a {
     align-items: center;
     justify-content: center;
     margin-top: auto;
+    font-weight: 600;
 }
 .hamburger {
     display: none;
@@ -249,6 +254,10 @@ a {
     background-color: #e4e9e8;
 }
 
+.dark-mode .base:hover{
+    background-color: #444444;
+}
+
 .card:hover img{
     opacity: 0.6;
 }
@@ -273,10 +282,18 @@ a {
     transition: transform 0.5s;
 }
 
+.dark-mode .base div::after{
+    color: white;
+}
+
 .base[aria-expanded="true"] div::after{
     content: '+';
     color: black;
     transform: rotate(135deg);
+}
+
+.dark-mode .base[aria-expanded="true"] div::after{
+    color: white;
 }
 
 .base[aria-expanded="true"] ~ .extra{
@@ -305,7 +322,12 @@ footer img {
 }
 
 footer p {
-    color: #6c757d;
+    color: #243632;
+    font-size: 14px;
+}
+
+.dark-mode footer p{
+    color: #02E0b4;
     font-size: 14px;
 }
 
