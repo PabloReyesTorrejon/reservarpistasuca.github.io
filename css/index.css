@@ -72,6 +72,7 @@ a {
     background-position: 50% 40%;
     filter: brightness(0.5) contrast(1.2) opacity(0.8);
     z-index: -1;
+    background-color: black;
 }
 
 .header h1 {
