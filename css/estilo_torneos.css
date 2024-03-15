@@ -292,7 +292,8 @@ footer p {
         background-color: transparent;
         color: #000; /* Color de las líneas */
         font-size: 30px; /* Tamaño de las líneas */
-        border: none; /* Elimina el borde del botón */    }
+        border: none; /* Elimina el borde del botón */
+    }
 
     .navbar-items {
         display: none;
@@ -300,22 +301,21 @@ footer p {
     }
     .navbar.responsive {
         flex-direction: column;
+        z-index: 10;
     }
     .navbar.responsive .navbar-items {
         display: flex;
     }
     
-    .navbar-items ul {
-        display: block; /* Los elementos de la lista se muestran en bloque, lo que los hace apilarse verticalmente */
+    .navbar-items ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .navbar {
         flex-direction: column;
     }
-
-   /*  .content{
-        padding-top: 1px;
-    } */
 
     .dropdown-content {
         min-width: 100%;
