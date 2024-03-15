@@ -31,3 +31,10 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
+.dark-mode table, .dark-mode th, .dark-mode td{
+    border: 1px solid white;
+}
+.dark-mode th{
+    background-color: #252525;
+}

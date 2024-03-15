@@ -58,7 +58,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    min-height: 40vh;
     position: relative;
     width: 100%;
 }
@@ -89,6 +89,7 @@ a {
 .header h2{
     position: relative;
     text-align: center;
+    padding-bottom: 10px;
     font-size: 24px;
     z-index: 1;
     color: white;
@@ -225,10 +226,12 @@ main a{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    justify-content: space-around; /* Alinea las tarjetas horizontalmente con espacio alrededor */
 }
 .card {
     flex: 0 0 30%; /* Las tarjetas ocuparán el 30% del ancho del contenedor */
     margin: 1.5%;
+    min-width: 300px;
     text-align: center;
     border-radius: 20px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
@@ -278,10 +281,10 @@ main a{
 }
 .sidebar img {
     width: 50%;
+    min-width: 300px;
     height: auto;
     display: inline-block;
     float: none;
-    
 }
 
 /* Estilos para el pie de página */
@@ -311,7 +314,7 @@ main a{
 }
 
 /* Estilos para pantallas de tamaño pequeño*/
-@media (max-width: 390px) and (max-height: 844px) {
+@media (max-width: 500px) and (max-height: 844px) {
     .hamburger {
         display: block;
         background-color: transparent;
@@ -349,6 +352,7 @@ main a{
 
     .card {
         flex: 0 0 100%;
+        margin: 15px 0;
     }
     .header{
         height: 500px;
