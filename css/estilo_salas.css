@@ -31,7 +31,7 @@ a {
 #container {
     width: 100%;
     margin: auto;
-    padding: 20px;
+    padding: 20px 20%;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
@@ -59,9 +59,43 @@ a {
 .dark-mode .card h2{
     color: white;
 } 
-.dark-mode .card p{
+.dark-mode .card ul{
     color: white;
-} 
+}
+
+table {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    overflow-x: auto;
+}
+
+.dark-mode table{
+    background-color: black;
+}
+
+table, th, td{
+    border: 1px solid black;
+}
+
+.dark-mode table, .dark-mode th, .dark-mode td{
+    border: 1px solid white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th{
+    background-color: #f2f2f2;
+}
+
+.dark-mode th{
+    background-color: #252525;
+}
 
 /* Estilos para el encabezado */
 .header {
@@ -69,7 +103,7 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    min-height: 40vh;
     position: relative;
     width: 100%;
 }
@@ -101,6 +135,7 @@ a {
     position: relative;
     text-align: center;
     font-size: 24px;
+    padding-bottom: 10px;
     z-index: 1;
     color: white;
     text-shadow: black 3px 3px;
@@ -218,11 +253,15 @@ a {
 .card{
     display: flex;
     flex-direction: column;
-    margin: 2% 10%;
+    margin: 2vh 0;
     border-radius: 20px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     position: relative;
+}
+
+.dark-mode .card{
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.514);
 }
 
 .card .base{
@@ -231,7 +270,7 @@ a {
     flex-direction: row;
     font-size: 1rem;
     font-weight: normal;
-    height: 150px;
+    max-height: 150px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -265,11 +304,17 @@ a {
 .card img{
     width: 30%;
     height: 150px;
+    object-fit: cover;
 }
 
 .base div{
     text-align: left;
     margin: 0.5% 2%;
+    width: 60%;
+}
+
+.base ul{
+    margin: 1% 4%;
 }
 
 .base div::after{
@@ -332,13 +377,14 @@ footer p {
 }
 
 /* Estilos para pantallas de tamaño pequeño*/
-@media (max-width: 390px) and (max-height: 844px) {
+@media (max-width: 500px) and (max-height: 844px) {
     .hamburger {
         display: block;
         background-color: transparent;
         color: #000; /* Color de las líneas */
         font-size: 30px; /* Tamaño de las líneas */
-        border: none; /* Elimina el borde del botón */    }
+        border: none; /* Elimina el borde del botón */
+    }
 
     .navbar-items {
         display: none;
@@ -346,20 +392,24 @@ footer p {
     }
     .navbar.responsive {
         flex-direction: column;
+        z-index: 10;
     }
     .navbar.responsive .navbar-items {
         display: flex;
     }
     
-    .navbar-items ul {
-        display: block; /* Los elementos de la lista se muestran en bloque, lo que los hace apilarse verticalmente */
+    .navbar-items ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .navbar {
         flex-direction: column;
     }
+
     .content{
-        padding-top: 1px;
+        padding-top: 150px;
     }
 
     .dropdown-content {
@@ -367,8 +417,42 @@ footer p {
     }
 
     .card {
-        flex: 0 0 100%;
+        margin: 0.5% 2%;
     }
+
+    .base{
+        height: 200px;
+    }
+
+    .base[aria-expanded="true"]{
+        height: auto;
+    }
+
+    .base[aria-expanded="false"] img{
+        height: 130px;
+        transition: 0.5s;
+    }
+
+    .base[aria-expanded="true"] img{
+        height: 60px;
+        transition: 0.5s;
+    }
+
+    .base div{
+        width: 100%;
+        text-align: center;
+        margin: 10px 10px;
+    }
+    
+    .base ul{
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .base[aria-expanded="false"] ul{
+        display: none;
+    }
+    
     .header{
         height: 500px;
     }
@@ -377,15 +461,46 @@ footer p {
     }
 
     .card .base{
-        height: 250px;
+        max-height: none;
         flex-direction: column;
     }
 
     .base div::after{
-        top: 150px;
+        top: 145px;
+        transition: 0.5s;
+    }
+
+    .base[aria-expanded="true"] div::after{
+        top: 75px;
+        transition: 0.5s;
     }
 
     .base img{
         width: 100%;
+    }
+}
+
+/* Estilos para las tarjetas cuando la venta es muy estrecha*/
+@media (max-width: 1000px){
+    #container{
+        padding: 20px 10%;
+        transition: 2s;
+    }
+
+    .base ul{
+        margin: 1% 6%;
+        transition: 0.5s;
+    }
+}
+
+@media (max-width: 600px){
+    #container{
+        padding: 20px 5%;
+        transition: 2s;
+    }
+
+    .base ul{
+        margin: 1% 8%;
+        transition: 0.5s;
     }
 }
