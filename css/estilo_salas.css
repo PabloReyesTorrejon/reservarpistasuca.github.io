@@ -64,23 +64,16 @@ a {
 }
 
 table {
-    display: block;
     margin: 10px 0;
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
-    overflow-x: auto;
 }
 
-.dark-mode table{
-    background-color: black;
-}
-
-table, th, td{
+th, td{
     border: 1px solid black;
 }
 
-.dark-mode table, .dark-mode th, .dark-mode td{
+.dark-mode th, .dark-mode td{
     border: 1px solid white;
 }
 
@@ -95,6 +88,10 @@ th{
 
 .dark-mode th{
     background-color: #252525;
+}
+
+.dark-mode td{
+    background-color: black;
 }
 
 /* Estilos para el encabezado */
@@ -485,6 +482,11 @@ footer p {
     #container{
         padding: 20px 10%;
         transition: 2s;
+    }
+
+    table{
+        display: block;
+        overflow-x: auto;
     }
 
     .base ul{
