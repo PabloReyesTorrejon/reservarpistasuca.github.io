@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Security-Policy" content="img-src *;">
+    <title>Reserva de Pistas Deportivas</title>
+</head>
+<body>
+    <div class="header">
+        <!--Título-->
+        <h1>Reserva de Pistas Deportivas</h1>
+        <h2>Elige uno de nuestros deportes, reserva y juega ¡Así de fácil!</h2>
+        <!--Barra Navegación-->
+        <nav id="navbar" class="navbar">
+            <button class="hamburger">&#9776;</button>
+            <div class="navbar-items">
+                <ul>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="this.classList.toggle('active');">Inicio</button>
+                        <div class="dropdown-content">
+                            <a href="#reservar">Reservar Pista</a>
+                            <a href="#tarjeta">Tarjeta Deportiva</a>
+                            <a href="#descuentos">Descuentos</a>
+                            <a href="#noticias"></a>
+                        </div>
+                    </li>
+                    <li><a href="./html/salas.html">Servicios</a></li>
+                    <li><a href="./html/torneos.html">Torneos</a></li>
+                    <li><a href="https://areadeportes.uca.es/">Área de Deportes de la UCA</a></li>
+                    <li class="dropdown">
+                        <button class="dropbtn" onclick="this.classList.toggle('active');">Contacto</button>
+                        <div class="dropdown-content">
+                            <a>+34 653 234 234</a>
+                            <a>areadeportes@uca.es</a>
+                        </div>
+                    </li>
+                    <li><a href="./html/pistas_usuario.html">Mis Pistas</a></li>
+                    <li>
+                        <button id="dark-mode-toggle">🌙</button>
+                    </li>
+                </ul>
+            </div> 
+        </nav>
+    </div>
+    <!--Contenido principal-->
+    <main id="container" class="container">
+        <!--Seccion reserva de pistas-->
+        <article class="main-reservar" id="reservar">
+            <h2>Reservar una pista</h2>
+            <h3>Nuestras pistas más destacadas</h3>
+            <div class="cards">
+                <div class="card">
+                    <img src="./img/tenis.jpg" alt="Tenis">
+                    <p>Pistas de tenis</p>
+                    <button class="reservar-btn" data-deporte="Tenis" onclick="reservar(this)">Reservar</button>
+                </div>
+                <div class="card">
+                    <img src="./img/padel.jpg" alt="Padel">
+                    <p>Pistas de pádel</p>
+                    <button class="reservar-btn" data-deporte="Pádel" onclick="reservar(this)">Reservar</button>
+                </div>
+                <div class="card">
+                    <img src="./img/piscina.jpg" alt="Piscina">
+                    <p>Piscina</p>
+                    <button class="reservar-btn" data-deporte="Piscina" onclick="reservar(this)">Reservar</button>
+                </div>
+            </div>
+            <a href="./html/reserva.html">Quiero elegirla yo</a>
+        </article>
+        <!--Seccion tarjeta deportiva-->
+        <aside class="sidebar" id="tarjeta">
+            <h2>Consigue la tarjeta deportiva</h2>
+            <div class="foto_tarjeta">
+                <a href="https://areadeportes.uca.es/td/">
+                    <img src="./img/tarjeta_deportiva.png" alt="">
+                </a>
+            </div>
+        </aside>
+        <!--Seccion descuentos-->
+        <aside class="sidebar" id="descuentos">
+            <h2>Descuentos para estudiantes</h2>
+            <h3>¡Sácale partido a tu tarjeta!</h3>
+            <ul>
+                <li><a href="#">Descuentos en pistas</a></li>
+                <li><a href="#">Descuentos en gimnnasio</a></li>
+                <li><a href="#">Otros descuentos</a></li>
+            </ul>
+        </aside>
+        <aside class="sidebar" id="noticias">
+            <!--Seccion noticias-->
+            <h2>Noticias relacionadas</h2>
+            <ul>
+                <li><a href="#">Nuevo torneo de tenis en la ciudad</a></li>
+                <li><a href="#">Inauguración de nueva pista de baloncesto</a></li>
+                <li><a href="#">Clases de natación para niños</a></li>
+            </ul>
+        </aside>
+            <!--Iconos de redes sociales-->
+        <footer class="footer">
+            <img src="./img/11053969_x_logo_twitter_new_brand_icon.png" alt = "Logo X">
+            <img src="./img/1164349_circle_instagram_logo_media_network_icon.png" alt = "Logo Instagram">
+            <img src="./img/7693284_tiktok_social_media_apps_logo_icon.png" alt = "Logo Tiktok">
+            <p>Derechos de autor © 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+    <script src="./js/index.js"></script>
+
+</body>
+</html>
