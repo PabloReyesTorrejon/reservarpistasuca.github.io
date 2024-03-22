@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const moviesService = require('./movies-service');
+const moviesService = require('./reservas-service');
 
 router.get('/', function (req, res) {
     moviesService.getAll((err, movies) => {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <style type="text/css">
+        span {
+            width: 250px; 
+            display: inline-block;
+        }
+    </style>
+    <script type="text/javascript">
+        // Supongamos que ya tienes las reservas en un array
+        let reservas = ["Reserva 1", "Reserva 2", "Reserva 3", "Reserva 4", "Reserva 5"];
+
+        function listar(array) {
+            let htmlGenerado = "<ul>";   
+            for (let i = 0; i < array.length; i++) {
+                htmlGenerado += `<li><span>${array[i]}</span> <button class="borrado" id="boton${i}">Eliminar</button></li>`;
+            }
+            return htmlGenerado + "</ul>";
+        };
+
+        function mostrarListado() { 
+            document.getElementById("listado").innerHTML = listar(reservas);
+        };
+        
+        function crearItem() {
+            reservas.push(document.getElementById("reservaNueva").value);
+            mostrarListado();
+        };
+        
+        function eliminarItem(i) {
+            reservas.splice(i.substring(5), 1);
+            mostrarListado();
+        };
+
+        document.addEventListener('DOMContentLoaded', mostrarListado);
+        document.addEventListener('click', function(ev) {
+            if (ev.target.matches('#crear')) {
+                crearItem();
+            } else if (ev.target.matches('.borrado')) {
+                eliminarItem(ev.target.id);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h2>Listado de Reservas</h2>
+    <div id="listado"></div>
+</body>
+</html>
