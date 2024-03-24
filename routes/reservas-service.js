@@ -23,7 +23,20 @@ Reservas.prototype.connectDb = function (callback) {
 };
 
 Reservas.prototype.add = function (Reserva, callback) {
-    return db.insertOne(Reserva, callback);
+    
+    db.find({nombre: Reserva.nombre, fechaReserva: Reserva.fechaReserva, h_ini: Reserva.h_ini}).toArray(function(err, result){
+        if(err){
+            callback(err);
+        }
+        else if(result.length > 0){
+            //reserva ya existe
+            callback("Reserva ya existente");
+        }
+        else{
+            //insertar reserva si no existe
+            return db.insertOne(Reserva, callback);
+        }
+    });
 };
 
 Reservas.prototype.get = function (_id, callback) {
