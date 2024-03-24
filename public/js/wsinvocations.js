@@ -43,7 +43,7 @@ function getAllReservas() {
         success: function(data) {
             let htmlGenerado = "<ul>";   
             for (let i = 0; i < data.length; i++) {
-                htmlGenerado += `<li><span>${data[i].nombre} - ${data[i].fechaReserva} - ${data[i].h_ini} - ${data[i].h_fin} - ${data[i].capacidad} - ${data[i].reservada}</span> <button class="borrado" id="boton${i}">Eliminar</button></li>`;
+                htmlGenerado += `<li><span>${data[i].nombre} - ${data[i].fechaReserva} - ${data[i].h_ini} - ${data[i].h_fin} - ${data[i].capacidad} - ${data[i].reservada}</span> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></li>`;
             }
             htmlGenerado += "</ul>";
             $("#listado").html(htmlGenerado);
@@ -84,7 +84,8 @@ function deleteReserva(reservaId) {
         type: "DELETE",
         url: myUrl,
         success: function(data) {
-            $("#resPelicula").html(data.msg); // Para que solo aparezca: Films deleted!
+            alert(data.msg); // Para que solo aparezca: Reserva eliminada!
+            getAllReservas(); // Actualiza la lista de reservas
         },
         error: function(res) {
             alert("ERROR: " + res.statusText);
