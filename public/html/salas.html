@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Reserva de pistas deportivas en la Universidad de Cádiz">
+	<title>Pistas Disponibles</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+	<link href="../css/estilo_salas.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	<div class="header">
+		<!--Título-->
+		<h1>Reserva de Pistas Deportivas</h1>
+		<h2>Elige uno de nuestros deportes, reserva y juega ¡Así de fácil!</h2>
+		<!--Barra Navegación-->
+		<nav id="navbar" class="navbar">
+			<button class="hamburger">&#9776;</button>
+			<div class="navbar-items">
+				<ul>
+					<li><a href="../index.html">Inicio</a></li>
+					<li><a href="../html/salas.html">Servicios</a></li>
+					<li><a href="../html/torneos.html">Torneos</a></li>
+					<li><a href="https://areadeportes.uca.es/">Área de Deportes de la UCA</a></li>
+					<li class="dropdown">
+						<button class="dropbtn" onclick="this.classList.toggle('active');">Contacto</button>
+						<div class="dropdown-content">
+							<a>+34 653 234 234</a>
+							<a>areadeportes@uca.es</a>
+						</div>
+					</li>
+					<li><a href="./html/pistas_usuario.html">Mis Pistas</a></li>
+					<li>
+						<button id="dark-mode-toggle">🌙</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!--Tarjetas-->
+	<main id="container" class="container">
+		<article class="card">
+			<!--Contenido inicial-->
+			<button type="button" aria-expanded="false" class="base" aria-controls="sect1" id="accordion1id">
+				<img src="../img/tenis.jpg" alt="Tenis">
+				<div>
+					<h2>Tenis</h2>
+					<ul>
+						<li><a>De 2 a 4 personas</a></li>
+						<li><a>Disponible alquiler de material</a></li>
+						<li><a>Vestuarios</a></li>
+					</ul>
+				</div>
+			</button>
+			<!--Contenido extra al clicar en la tarjeta-->
+			<div id="sect1" class="extra" hidden>
+				<h3>Horarios</h3>
+				<div>
+				<table style="width: 100%;">
+					<tr>
+						<th style="text-align: center;">Nombre de la Pista</th>
+						<th style="text-align: center;">Fecha</th>
+						<th style="text-align: center;">Hora de Inicio</th>
+						<th style="text-align: center;">Hora de Fin</th>
+						<th style="text-align: center;">Número de Personas</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td style="text-align: center;">Pista 2</td>
+						<td style="text-align: center;">2024-09-01</td>
+						<td style="text-align: center;">08:00</td>
+						<td style="text-align: center;">09:00</td>
+						<td style="text-align: center;">2</td>
+						<td style="display: flex; justify-content: center;"><button>Reservar</button></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">Pista 2</td>
+						<td style="text-align: center;">2024-09-01</td>
+						<td style="text-align: center;">09:00</td>
+						<td style="text-align: center;">10:00</td>
+						<td style="text-align: center;">2</td>
+						<td style="display: flex; justify-content: center;"><button>Reservar</button></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">Pista 3</td>
+						<td style="text-align: center;">2024-09-01</td>
+						<td style="text-align: center;">08:00</td>
+						<td style="text-align: center;">09:00</td>
+						<td style="text-align: center;">4</td>
+						<td style="display: flex; justify-content: center;"><button>Reservar</button></td>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</article>
+		<article class="card">
+			<!--Contenido inicial-->
+			<button type="button" aria-expanded="false" class="base" aria-controls="sect2" id="accordion2id">
+				<img src="../img/futbol.jpg" alt="Futbol">
+				<div>
+					<h2>Fútbol</h2>
+					<ul>
+						<li><a>Hasta 14 personas</a></li>
+						<li><a>Parking cercano</a></li>
+						<li><a>Vestuarios</a></li>
+					</ul>
+				</div>
+			</button>
+			<!--Contenido extra al clicar en la tarjeta-->
+			<div id="sect2" class="extra" hidden>
+				<h3>Horarios</h3>
+				<table style="width: 100%;">
+					<tr>
+						<th style="text-align: center;">Nombre de la Pista</th>
+						<th style="text-align: center;">Fecha</th>
+						<th style="text-align: center;">Hora de Inicio</th>
+						<th style="text-align: center;">Hora de Fin</th>
+						<th style="text-align: center;">Número de Personas</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td style="text-align: center;">Pista 2</td>
+						<td style="text-align: center;">2024-09-01</td>
+						<td style="text-align: center;">08:00</td>
+						<td style="text-align: center;">09:00</td>
+						<td style="text-align: center;">2</td>
+						<td style="display: flex; justify-content: center;"><button>Reservar</button></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">Pista 1</td>
+						<td style="text-align: center;">2024-09-01</td>
+						<td style="text-align: center;">08:00</td>
+						<td style="text-align: center;">09:00</td>
+						<td style="text-align: center;">4</td>
+						<td style="display: flex; justify-content: center;"><button>Reservar</button></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">Pista 1</td>
+						<td style="text-align: center;">2024-09-01</td>
+						<td style="text-align: center;">09:00</td>
+						<td style="text-align: center;">10:00</td>
+						<td style="text-align: center;">4</td>
+						<td style="display: flex; justify-content: center;"><button>Reservar</button></td>
+					</tr>
+				</table>
+			</div>
+		</article>
+		<article class="card">
+			<!--Contenido inicial-->
+			<button type="button" aria-expanded="false" class="base" aria-controls="sect3" id="accordion3id">
+				<img src="../img/padel.jpg" alt="Padel">
+				<div>
+					<h2>Pádel</h2>
+					<ul>
+						<li><a>De 2 a 4 personas</a></li>
+						<li><a>Disponible alquiler de material</a></li>
+						<li><a>Vestuarios</a></li>
+					</ul>
+				</div>
+			</button>
+			<!--Contenido extra al clicar en la tarjeta-->
+			<div id="sect3" class="extra" hidden>
+				<h3>Horarios</h3>
+				<p>Actualmente no hay pistas disponibles. Disculpe las molestias.</p>
+			</div>
+		</article>
+		<footer>
+			<img src="../img/11053969_x_logo_twitter_new_brand_icon.png" alt="Logo X">
+			<img src="../img/1164349_circle_instagram_logo_media_network_icon.png" alt="Logo Instagram">
+			<img src="../img/7693284_tiktok_social_media_apps_logo_icon.png" alt="Logo Tiktok">
+			<p>Derechos de autor &copy; 2024 Reserva de Pistas Deportivas. Todos los derechos reservados.</p>
+		</footer>
+	</main>
+
+	<script type="text/javascript" src="../js/script_salas.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+</body>
+
+</html>

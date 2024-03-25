@@ -40,11 +40,12 @@ function getAllReservas() {
         dataType: "json",
         url: myUrl,
         success: function(data) {
-            let htmlGenerado = "<ul>";   
+            let htmlGenerado = "<table>";   
+            htmlGenerado += "<tr><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";
             for (let i = 0; i < data.length; i++) {
-                htmlGenerado += `<li><span>${data[i].nombre} - ${data[i].fechaReserva} - ${data[i].h_ini} - ${data[i].h_fin} - ${data[i].capacidad} - ${data[i].reservada}</span> <button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></li>`;
+                htmlGenerado += `<tr><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
             }
-            htmlGenerado += "</ul>";
+            htmlGenerado += "</table>";
             $("#listado").html(htmlGenerado);
         },
         error: function(res) {
