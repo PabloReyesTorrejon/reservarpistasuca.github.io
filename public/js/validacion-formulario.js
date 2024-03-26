@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-var pistas = [
+/*var pistas = [
     {fecha: '2024-09-01', numPersonas: 4, nombre: 'Pista 1', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Fútbol'},
     {fecha: '2024-09-01', numPersonas: 4, nombre: 'Pista 1', hora_ini: '09:00', hora_fin: '10:00', tipo: 'Fútbol'},
     {fecha: '2024-09-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Fútbol'},
@@ -155,8 +155,71 @@ var pistas = [
     {fecha: '2024-09-01', numPersonas: 2, nombre: 'Pista 2', hora_ini: '09:00', hora_fin: '10:00', tipo: 'Tenis'},
     {fecha: '2024-09-01', numPersonas: 4, nombre: 'Pista 3', hora_ini: '08:00', hora_fin: '09:00', tipo: 'Tenis'},
     // Más pistas aquí...
-];
+];*/
+$(document).ready(function() {
+    $('#consultar-salas').on('submit', function(event) {
+        event.preventDefault();
 
+        
+        var reserva = { 
+            nombre: $('#nombre').val(),
+            email: $('#email').val(),
+            telefono: $('#telefono').val(),
+            deporte: $('#deporte').val(),
+            numPersonas: $('#numPersonas').val(),
+            fechaReserva: $('#fechaReserva').val(),
+            horaReserva: $('#horaReserva').val()
+        };
+
+        getReservas(reserva);
+    });
+});
+function getReservas(reserva) {
+    let myUrl = "/reservas/";
+    $.ajax({
+        type: "GET",
+        url: myUrl,
+        data: reserva,
+        success: function(data) {
+            let htmlGenerado = "<table class='reservas-table'>";  
+            console.log(data);
+            console.log(reserva); 
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].fechaReserva === reserva.fechaReserva && data[i].h_ini === reserva.horaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && data[i].reservada === false) {
+                    htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Deporte</th><th>Capacidad</th><th>Acciones</th></tr>";            
+                    htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}')">Reservar</button></td></tr>`;
+                }
+            }
+            htmlGenerado += "</table>";
+            $("#listado").html(htmlGenerado);
+        },
+        error: function(res) {
+            console.error("ERROR:", res.status, res.statusText);
+        }
+    });
+}
+
+function hacerReserva(id, email) {
+    let myUrl = "/reservas/" + id;
+    $.ajax({
+        type: "PUT",
+        url: myUrl,
+        contentType: "application/json",
+        dataType: "text",
+        data: JSON.stringify({
+            "nombre": email,
+            "reservada": true
+        }),
+        success: function(data) {
+            alert("Reservado con éxito");
+        },
+        error: function(res) {
+            alert("ERROR: " + res.statusText);
+        }
+    });
+}
+
+/*
 // Encuentra el formulario "Consultar salas" en tu página:
 var formulario = document.querySelector('#consultar-salas');
 
@@ -185,7 +248,7 @@ formulario.addEventListener('submit', function(event) {
     });
 
     // Limpia el div por si ya había una tabla o un mensaje
-    var divTabla = document.querySelector('#tabla');
+    var divTabla = document.querySelector('#listado');
     divTabla.innerHTML = '';
 
     if (pistasFiltradas.length === 0) {
@@ -276,4 +339,4 @@ formulario.addEventListener('submit', function(event) {
         // Agrega la tabla a tu página:
         divTabla.appendChild(tabla);
     }
-});
+});*/

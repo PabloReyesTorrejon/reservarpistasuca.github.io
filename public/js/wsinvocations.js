@@ -1,18 +1,3 @@
-function getReserva(reservaId, callback) {
-    let myUrl = "/reservas/" + reservaId;
-    $.ajax({
-        type: "GET",
-        url: myUrl,
-        dataType: "json",
-        success: function(data) {
-            callback(null, data);
-        },
-        error: function(res) {
-            callback(res);
-        }
-    });
-}
-
 function postReserva() {
     $.ajax({
         type: "POST",
@@ -41,7 +26,8 @@ function getAllReservas() {
         url: myUrl,
         success: function(data) {
             let htmlGenerado = "<table class='reservas-table'>";   
-            htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            for (let i = 0; i < data.length; i++) {
+            htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
+            for (let i = 0; i < data.length; i++) {
                 htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
             }
             htmlGenerado += "</table>";
