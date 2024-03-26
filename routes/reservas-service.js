@@ -24,7 +24,7 @@ Reservas.prototype.connectDb = function (callback) {
 
 Reservas.prototype.add = function (Reserva, callback) {
     
-    db.find({nombre: Reserva.nombre, fechaReserva: Reserva.fechaReserva, h_ini: Reserva.h_ini}).toArray(function(err, result){
+    db.find({pista:Reserva.pista, nombre: Reserva.nombre, fechaReserva: Reserva.fechaReserva, h_ini: Reserva.h_ini}).toArray(function(err, result){
         if(err){
             callback(err);
         }

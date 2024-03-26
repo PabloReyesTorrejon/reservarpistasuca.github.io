@@ -1,0 +1,81 @@
+h2{
+    font-family: "Open Sans", sans-serif;
+}
+.reservas-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; /* Centra el texto de todos los elementos de la tabla */
+    font-family: "Poppins", sans-serif;
+}
+
+.reservas-table th, .reservas-table td {
+    border: 1px solid black;
+    padding: 15px;
+    vertical-align: middle; /* Centra verticalmente el contenido de las celdas */
+}
+
+.reservas-table th {
+    background-color: #f2f2f2;
+}
+
+.reservas-table button {
+    background-color: gray;
+    color: black;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12pt;
+    font-weight: 600;
+}
+
+.reservas-table button:hover {
+    background-color: #316157;
+}
+
+.reservas-table button:active {
+    background-color: #316157;
+}
+
+.dark-mode .reservas-table th, .dark-mode .reservas-table td{
+    border: 1px solid white;
+}
+
+.dark-mode .reservas-table th{
+    background-color: #252525;
+}
+
+form, .reservas-table button {
+    font-family: "Poppins", sans-serif;
+}
+
+.borrado{
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12pt;
+    font-weight: 600;
+}
+.volver{
+    background-color: #316157;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12pt;
+    font-weight: 600;
+}

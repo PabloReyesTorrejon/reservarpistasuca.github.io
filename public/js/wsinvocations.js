@@ -40,12 +40,12 @@ function getAllReservas() {
         dataType: "json",
         url: myUrl,
         success: function(data) {
-            let htmlGenerado = "<table>";   
-            htmlGenerado += "<tr><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";
-            for (let i = 0; i < data.length; i++) {
-                htmlGenerado += `<tr><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
+            let htmlGenerado = "<table class='reservas-table'>";   
+            htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            for (let i = 0; i < data.length; i++) {
+                htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
             }
             htmlGenerado += "</table>";
+            htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>";
             $("#listado").html(htmlGenerado);
         },
         error: function(res) {
@@ -63,11 +63,15 @@ function modifyReserva(reservaId) {
         if (err) {
             alert("ERROR: " + err.statusText);
         } else {
+            let pista = reserva.pista || '';
             let htmlGenerado = `<form id="modifyForm">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" value="${reserva.nombre}"><br>
-                <input type="date" id="fechaReserva name="fechaReserva" value="${reserva.fechaReserva}"><br>
+                <label for="pista">Nombre Pista:</label>
+                <input type="text" id="pista" name="pista" value="${pista}"><br>
+                <label for="fechaReserva">Nueva Fecha:</label>
+                <input type="date" id="fechaReserva" name="fechaReserva" value="${reserva.fechaReserva}"><br>
+                <label for="h_ini">Nueva hora de inicio:</label>
                 <input type="time" id="h_ini" name="h_ini" value="${reserva.h_ini}"><br>
+                <label for="h_fin">Nueva hora de fin:</label>
                 <input type="time" id="h_fin" name="h_fin" value="${reserva.h_fin}"><br>
                 <input type="submit" value="Modificar reserva">
             </form>`;
@@ -76,9 +80,23 @@ function modifyReserva(reservaId) {
             $("#modifyForm").submit(function(event) {
                 event.preventDefault();
                 let reserva = {
-                    nombre: $("#nombre").val(),
+                    pista: $("#pista").val(),
                     fechaReserva: $("#fechaReserva").val(),
+                    h_ini: $("#h_ini").val(),
+                    h_fin: $("#h_fin").val()
                 };
+                if (!reserva.pista) {
+                    delete reserva.pista;
+                }
+                if (!reserva.fechaReserva) {
+                    delete reserva.fechaReserva;
+                }
+                if (!reserva.h_ini) {
+                    delete reserva.h_ini;
+                }
+                if (!reserva.h_fin) {
+                    delete reserva.h_fin;
+                }
                 putReserva(reservaId, reserva);
             });
         }
@@ -109,6 +127,20 @@ function deleteReserva(reservaId) {
         url: myUrl,
         success: function(data) {
             alert(data.msg); // Para que solo aparezca: Reserva eliminada!
+            getAllReservas(); // Actualiza la lista de reservas
+        },
+        error: function(res) {
+            alert("ERROR: " + res.statusText);
+        }
+    });
+}
+
+function deleteAllReservas() {
+    $.ajax({
+        type: "DELETE",
+        url: "/reservas",
+        success: function(data) {
+            alert(data.msg); // Para que solo aparezca: Todas las reservas eliminadas!
             getAllReservas(); // Actualiza la lista de reservas
         },
         error: function(res) {
