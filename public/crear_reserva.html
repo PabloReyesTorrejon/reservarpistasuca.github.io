@@ -24,8 +24,8 @@
         <label for="pista">Pista:</label>
             <input type="text" id="pista" name="pista" required><br>
 
-        <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required><br>
+        <input id="nombre" name="nombre" type="hidden" value="null">Reservada</label>
+
 
         <label for="fechaReserva">Fecha de Reserva:</label>
             <input type="date" id="fechaReserva" name="fechaReserva" required><br>
@@ -39,11 +39,7 @@
         <label for="capacidad">Capacidad:</label>
             <input type="number" id="capacidad" name="capacidad" required><br>
 
-        <label for="reservada">Reservada</label>
-            <select id="reservada" name="reservada">
-                <option value="true">Sí</option>
-                <option value="false">No</option>
-            </select><br>
+        <input id="reservada" name="reservada" type="hidden" value="false">Reservada</label>
 
         <input type="submit" value="Crear Reserva">
     </form>
