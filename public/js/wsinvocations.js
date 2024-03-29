@@ -88,17 +88,27 @@ function modifyReserva(reservaId) {
         }
     });
 }
-function getReserva(reservaId, callback) {
-    let myUrl = "/reservas/" + reservaId;
+
+function getReserva(UserName){
+    let myUrl = "/reservas";
     $.ajax({
         type: "GET",
-        url: myUrl,
         dataType: "json",
+        url: myUrl,
         success: function(data) {
-            callback(null, data);
+            let htmlGenerado = "<table class='reservas-table'>";   
+            htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].nombre == UserName){
+                    htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
+                }
+            }
+            htmlGenerado += "</table>";
+            /* htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>"; */
+            $("#listado").html(htmlGenerado);
         },
         error: function(res) {
-            callback(res);
+            console.error("ERROR:", res.status, res.statusText);
         }
     });
 }
