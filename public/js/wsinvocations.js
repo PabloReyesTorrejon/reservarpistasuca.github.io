@@ -88,6 +88,21 @@ function modifyReserva(reservaId) {
         }
     });
 }
+function getReserva(reservaId, callback) {
+    let myUrl = "/reservas/" + reservaId;
+    $.ajax({
+        type: "GET",
+        url: myUrl,
+        dataType: "json",
+        success: function(data) {
+            callback(null, data);
+        },
+        error: function(res) {
+            callback(res);
+        }
+    });
+}
+
 function putReserva(reservaId, reserva) {
     let myUrl = "/reservas/" + reservaId;
     $.ajax({
