@@ -1,22 +1,3 @@
-function postReserva() {
-    $.ajax({
-        type: "POST",
-        url: "/reservas",
-        contentType: "application/json",
-        dataType: "text",
-        data: JSON.stringify({
-            "title": "Dunkirk",
-            "director": "Christopher Nolan",
-            "year": 2017
-        }),
-        success: function(data) {
-           $("#resPelicula").html(JSON.parse(data).msg); // Para que solo aparezca: Film created!
-        },
-        error: function(res) {
-            alert("ERROR: " + res.statusText);
-        }
-    });
-}
 
 function getAllReservas() {
     let myUrl = "http://localhost:8080/reservas";
@@ -26,9 +7,9 @@ function getAllReservas() {
         url: myUrl,
         success: function(data) {
             let htmlGenerado = "<table class='reservas-table'>";   
-            htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
+            htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
             for (let i = 0; i < data.length; i++) {
-                htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
+                htmlGenerado += `<tr><td>${data[i].deporte}</td><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
             }
             htmlGenerado += "</table>";
             htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>";
@@ -89,7 +70,22 @@ function modifyReserva(reservaId) {
     });
 }
 
-function getReserva(UserName){
+function getReserva(reservaId, callback) {
+    let myUrl = "http://localhost:8080/reservas/" + reservaId;
+    $.ajax({
+        type: "GET",
+        url: myUrl,
+        dataType: "json",
+        success: function(data) {
+            callback(null, data);
+        },
+        error: function(res) {
+            callback(res);
+        }
+    });
+}
+
+function getUserReservas(UserName){
     let myUrl = "http://localhost:8080/reservas";
     $.ajax({
         type: "GET",
@@ -97,10 +93,10 @@ function getReserva(UserName){
         url: myUrl,
         success: function(data) {
             let htmlGenerado = "<table class='reservas-table'>";   
-            htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
+            htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
             for (let i = 0; i < data.length; i++) {
                 if(data[i].nombre == UserName){
-                    htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
+                    htmlGenerado += `<tr><td>${data[i].deporte}</td><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
                 }
             }
             htmlGenerado += "</table>";
