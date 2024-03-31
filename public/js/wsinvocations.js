@@ -19,7 +19,7 @@ function postReserva() {
 }
 
 function getAllReservas() {
-    let myUrl = "/reservas";
+    let myUrl = "http://localhost:8080/reservas";
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -90,7 +90,7 @@ function modifyReserva(reservaId) {
 }
 
 function getReserva(UserName){
-    let myUrl = "/reservas";
+    let myUrl = "http://localhost:8080/reservas";
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -105,7 +105,7 @@ function getReserva(UserName){
             }
             htmlGenerado += "</table>";
             /* htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>"; */
-            $("#listado").html(htmlGenerado);
+            $("#listUser").html(htmlGenerado);
         },
         error: function(res) {
             console.error("ERROR:", res.status, res.statusText);
@@ -114,7 +114,7 @@ function getReserva(UserName){
 }
 
 function putReserva(reservaId, reserva) {
-    let myUrl = "/reservas/" + reservaId;
+    let myUrl = "http://localhost:8080/reservas/" + reservaId;
     $.ajax({
         type: "PUT",
         url: myUrl,
@@ -132,7 +132,7 @@ function putReserva(reservaId, reserva) {
 }
 
 function deleteReserva(reservaId) {
-    let myUrl = "/reservas/" + reservaId;
+    let myUrl = "http://localhost:8080/reservas/" + reservaId;
     $.ajax({
         type: "DELETE",
         url: myUrl,
@@ -149,7 +149,7 @@ function deleteReserva(reservaId) {
 function deleteAllReservas() {
     $.ajax({
         type: "DELETE",
-        url: "/reservas",
+        url: "http://localhost:8080/reservas",
         success: function(data) {
             alert(data.msg); // Para que solo aparezca: Todas las reservas eliminadas!
             getAllReservas(); // Actualiza la lista de reservas

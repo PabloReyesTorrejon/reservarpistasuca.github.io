@@ -19,8 +19,8 @@
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email" placeholder="example@alum.uca.es" required><br>
 
-        <input type="button" value="Reservas" onclick="getReserva(document.getElementById('email'))">
+        <input type="button" value="Reservas" onclick="getReserva(document.getElementById('email').value)">
     </form>
-    <div id="listado"></div>
+    <div id="listUser"></div>
 </body>
 </html>
