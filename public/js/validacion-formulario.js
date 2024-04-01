@@ -185,7 +185,15 @@ function getReservas(reserva) {
             console.log(data);
             console.log(reserva); 
             for (let i = 0; i < data.length; i++) {
-                if (data[i].fechaReserva === reserva.fechaReserva && data[i].h_ini === reserva.horaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && data[i].reservada === false) {
+                if(reserva.horaReserva != ""){
+                
+                    if (data[i].fechaReserva === reserva.fechaReserva && data[i].h_ini === reserva.horaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && toString(data[i].reservada) === toString(false)) {
+                        htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Deporte</th><th>Capacidad</th><th>Acciones</th></tr>";            
+                        htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}')">Reservar</button></td></tr>`;
+                    }
+                }
+                else if (data[i].fechaReserva === reserva.fechaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && toString(data[i].reservada) === toString(false)) {
+                    
                     htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Deporte</th><th>Capacidad</th><th>Acciones</th></tr>";            
                     htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}')">Reservar</button></td></tr>`;
                 }
