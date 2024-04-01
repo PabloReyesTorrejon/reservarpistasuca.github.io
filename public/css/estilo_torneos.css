@@ -331,7 +331,19 @@ footer p {
     }
 
     .content{
-        padding-top: 10px;
+        padding-top: 20px;
+    }
+
+    .header{
+        height: 500px;
+    }
+    
+    .header, .footer {
+        padding: 10px;
+    }
+
+    iframe{
+        width: 100%;
     }
 }
 
