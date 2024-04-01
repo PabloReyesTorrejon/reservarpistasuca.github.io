@@ -1,12 +1,12 @@
 {
   "name": "web_complejo_deportivo",
   "version": "1.0.0",
-  "description": "",
+  "description": "API REST que permite crear, leer, actualizar y eliminar reservas de pistas de nuestro complejo deportivo.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Pablo Reyes e Ismael Vargas",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
