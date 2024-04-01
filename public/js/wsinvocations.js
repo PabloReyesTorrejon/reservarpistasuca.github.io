@@ -1,25 +1,3 @@
-function getAllReservas() {
-    let myUrl = "http://localhost:8080/reservas";
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: myUrl,
-        success: function(data) {
-            let htmlGenerado = "<table class='reservas-table'>";   
-            htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
-            for (let i = 0; i < data.length; i++) {
-                htmlGenerado += `<tr><td>${data[i].deporte}</td><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
-            }
-            htmlGenerado += "</table>";
-            htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>";
-            $("#listado").html(htmlGenerado);
-        },
-        error: function(res) {
-            console.error("ERROR:", res.status, res.statusText);
-        }
-    });
-}
-
 $(document).ready(function() {
     $("#creaReserva").submit(function(event) {
         event.preventDefault();
@@ -51,6 +29,28 @@ function postReserva(reserva){
         },
         error: function(res) {
             alert("ERROR: " + res.statusText);
+        }
+    });
+}
+
+function getAllReservas() {
+    let myUrl = "http://localhost:8080/reservas";
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: myUrl,
+        success: function(data) {
+            let htmlGenerado = "<table class='reservas-table'>";   
+            htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
+            for (let i = 0; i < data.length; i++) {
+                htmlGenerado += `<tr><td>${data[i].deporte}</td><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="modificar" onclick="modifyReserva('${data[i]._id}')">Modificar</button> <button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
+            }
+            htmlGenerado += "</table>";
+            htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>";
+            $("#listado").html(htmlGenerado);
+        },
+        error: function(res) {
+            console.error("ERROR:", res.status, res.statusText);
         }
     });
 }
