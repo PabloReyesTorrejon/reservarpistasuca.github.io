@@ -1,4 +1,3 @@
-
 function getAllReservas() {
     let myUrl = "http://localhost:8080/reservas";
     $.ajax({
@@ -17,6 +16,41 @@ function getAllReservas() {
         },
         error: function(res) {
             console.error("ERROR:", res.status, res.statusText);
+        }
+    });
+}
+
+$(document).ready(function() {
+    $("#creaReserva").submit(function(event) {
+        event.preventDefault();
+        var reserva = {
+            deporte: $("#deporte").val(),
+            pista: $("#pista").val(),
+            nombre: $("#nombre").val(),
+            fechaReserva: $("#fechaReserva").val(),
+            h_ini: $("#h_ini").val(),
+            h_fin: $("#h_fin").val(),
+            capacidad: $("#capacidad").val(),
+            reservada: $("#reservada").val()
+        };
+
+        postReserva(reserva);
+    });
+});
+
+function postReserva(reserva){
+    let myUrl = "http://localhost:8080/reservas";
+    $.ajax({
+        type: "POST",
+        url: myUrl,
+        contentType: "application/json",
+        dataType: "text",
+        data: JSON.stringify(reserva),
+        success: function(data) {
+            $("#resReserva").html(JSON.parse(data).msg);
+        },
+        error: function(res) {
+            alert("ERROR: " + res.statusText);
         }
     });
 }

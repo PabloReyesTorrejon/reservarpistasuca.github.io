@@ -8,11 +8,14 @@
 		rel="stylesheet">
     <link href="./css/reserva.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./css/tablas.css">
+
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="./js/wsinvocations.js"></script>
 </head>
 <body>
     <h1>Crear Reserva</h1>
 
-    <form method="POST" action="http://localhost:8080/reservas">
+    <form id="creaReserva">
         <label for="deporte">Deporte:</label>
             <select id="deporte" name="deporte">
                 <option value="Fútbol">Fútbol</option>
@@ -43,6 +46,10 @@
 
         <input type="submit" value="Crear Reserva">
     </form>
+
+    <div id="formulario"></div>
+
+    <div id="resReserva"></div>
 </body>
 
 </html>
