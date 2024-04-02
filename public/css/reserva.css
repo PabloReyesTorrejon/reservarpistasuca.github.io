@@ -13,10 +13,15 @@ input, textarea, select {
 	box-sizing: border-box;
 }
 
-table {
+.reservas-table {
     margin-top: 30px;
     width: 100%;
     border-collapse: collapse;
+    text-align: center; /* Centra el texto de todos los elementos de la tabla */
+    font-family: "Poppins", sans-serif;
+}
+table.reservas-table button.modificar {
+    display: inline-block;
 }
 
 th, td {

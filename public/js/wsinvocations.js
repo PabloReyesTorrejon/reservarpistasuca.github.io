@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mensajeFecha.textContent = '';
         }
     });
-    formulario.addEventListener('submit', function(event) {
+    formulario.addEventListener('change', function(event) {
         // Verifica si se ha seleccionado una opción en el menú desplegable
         if (inputDeporte.selectedIndex === 0) {
             // Si no se ha seleccionado ninguna opción, muestra un mensaje de error y evita que se envíe el formulario

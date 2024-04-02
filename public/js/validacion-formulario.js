@@ -192,7 +192,7 @@ function getReservas(reserva) {
                     }
                 }
                 else if (data[i].fechaReserva === reserva.fechaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && data[i].reservada === "false") {
-                    htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}')">Reservar</button></td></tr>`;
+                    htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}', '${reserva}')">Reservar</button></td></tr>`;
                 }
             }
             htmlGenerado += "</table>";
@@ -204,7 +204,7 @@ function getReservas(reserva) {
     });
 }
 
-function hacerReserva(id, email) {
+function hacerReserva(id, email, reserva) {
     let myUrl = "http://localhost:8080/reservas/" + id;
     $.ajax({
         type: "PUT",
@@ -217,6 +217,7 @@ function hacerReserva(id, email) {
         }),
         success: function(data) {
             alert("Reservado con éxito");
+            getReservas(reserva);
         },
         error: function(res) {
             alert("ERROR: " + res.statusText);
