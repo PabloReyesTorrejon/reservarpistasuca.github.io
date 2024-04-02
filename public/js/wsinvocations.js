@@ -121,24 +121,53 @@ function getReserva(reservaId, callback) {
 
 function getUserReservas(UserName){
     let myUrl = "http://localhost:8080/reservas";
+    let cont = 0;
     $.ajax({
         type: "GET",
         dataType: "json",
         url: myUrl,
         success: function(data) {
             let htmlGenerado = "<table class='reservas-table'>";   
-            htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
+            htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Acciones</th></tr>";            
             for (let i = 0; i < data.length; i++) {
                 if(data[i].nombre == UserName){
-                    htmlGenerado += `<tr><td>${data[i].deporte}</td><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td>${data[i].reservada}</td><td><button class="borrado" onclick="deleteReserva('${data[i]._id}')">Eliminar</button></td></tr>`;
+                    cont++;
+                    htmlGenerado += `<tr><td>${data[i].deporte}</td><td>${data[i].pista}</td><td>${data[i].nombre}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].capacidad}</td><td><button class="cancelacion" onclick="cancelarReserva('${data[i]._id}', '${UserName}')">Cancelar</button></td></tr>`;
                 }
             }
             htmlGenerado += "</table>";
-            /* htmlGenerado += "<button class='borrado' onclick='deleteAllReservas()'>Eliminar todas las reservas</button>"; */
-            $("#listUser").html(htmlGenerado);
+            
+            if(cont > 0){
+                $("#listUser").html(htmlGenerado);
+            }
+            else{
+                let htmlGenerado = "<p>No hay resultados</p>";
+                $("#listUser").html(htmlGenerado);
+            }
         },
         error: function(res) {
             console.error("ERROR:", res.status, res.statusText);
+        }
+    });
+}
+
+function cancelarReserva(id, email) {
+    let myUrl = "http://localhost:8080/reservas/" + id;
+    $.ajax({
+        type: "PUT",
+        url: myUrl,
+        contentType: "application/json",
+        dataType: "text",
+        data: JSON.stringify({
+            "nombre": null,
+            "reservada": "false"
+        }),
+        success: function(data) {
+            alert("Reserva cancelada");
+            getUserReservas(email);
+        },
+        error: function(res) {
+            alert("ERROR: " + res.statusText);
         }
     });
 }
