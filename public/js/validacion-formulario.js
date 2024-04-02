@@ -181,17 +181,22 @@ function getReservas(reserva) {
         url: myUrl,
         data: reserva,
         success: function(data) {
+            // Ordena los datos por fecha y hora de reserva
+            data.sort(function(a, b) {
+                let dateA = new Date(a.fechaReserva + " " + a.h_ini);
+                let dateB = new Date(b.fechaReserva + " " + b.h_ini);
+                return dateA - dateB;
+            });
+
             let htmlGenerado = "<table class='reservas-table'>";  
             htmlGenerado += "<tr class='reservas-table'><th>Pista</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Deporte</th><th>Capacidad</th><th>Acciones</th></tr>";            
-            console.log(data);
-            console.log(reserva); 
             for (let i = 0; i < data.length; i++) {
                 if(reserva.horaReserva != ""){
-                    if (data[i].fechaReserva === reserva.fechaReserva && data[i].h_ini === reserva.horaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && toString(data[i].reservada) === toString(false)) {
+                    if (data[i].fechaReserva === reserva.fechaReserva && data[i].h_ini === reserva.horaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) >= parseInt(reserva.numPersonas) && data[i].reservada === "false") {
                         htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}')">Reservar</button></td></tr>`;
                     }
                 }
-                else if (data[i].fechaReserva === reserva.fechaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) === parseInt(reserva.numPersonas) && data[i].reservada === "false") {
+                else if (data[i].fechaReserva === reserva.fechaReserva && data[i].deporte === reserva.deporte && parseInt(data[i].capacidad) >= parseInt(reserva.numPersonas) && data[i].reservada === "false") {
                     htmlGenerado += `<tr><td>${data[i].pista}</td><td>${data[i].fechaReserva}</td><td>${data[i].h_ini}</td><td>${data[i].h_fin}</td><td>${data[i].deporte}</td><td>${data[i].capacidad}</td><td><button class="modificar" onclick="hacerReserva('${data[i]._id}', '${reserva.email}', '${reserva}')">Reservar</button></td></tr>`;
                 }
             }

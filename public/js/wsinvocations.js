@@ -40,6 +40,17 @@ function getAllReservas() {
         dataType: "json",
         url: myUrl,
         success: function(data) {
+            // Ordena los datos por fecha, hora de reserva y deporte
+            data.sort(function(a, b) {
+                let dateA = new Date(a.fechaReserva + " " + a.h_ini);
+                let dateB = new Date(b.fechaReserva + " " + b.h_ini);
+                if (dateA - dateB === 0) {
+                    return a.deporte.localeCompare(b.deporte);
+                } else {
+                    return dateA - dateB;
+                }
+            });
+
             let htmlGenerado = "<table class='reservas-table'>";   
             htmlGenerado += "<tr class='reservas-table'><th>Deporte</th><th>Pista</th><th>Nombre</th><th>Fecha Reserva</th><th>Hora Inicio</th><th>Hora Fin</th><th>Capacidad</th><th>Reservada</th><th>Acciones</th></tr>";            
             for (let i = 0; i < data.length; i++) {
