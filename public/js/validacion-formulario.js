@@ -107,7 +107,11 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if(inputDeporte.value === 'Fútbol' && Number(inputNumPersonas.value) > 11){
             mensajePersonas.textContent = 'El fútbol solo permite un máximo de 11 personas.';
             inputDeporte.parentNode.insertBefore(mensajePersonas, inputDeporte.nextSibling);
-        } else {
+        } else if(inputDeporte.value === 'Pádel' && Number(inputNumPersonas.value) > 4){
+            mensajePersonas.textContent = 'El pádel solo permite un máximo de 4 personas.';
+            inputDeporte.parentNode.insertBefore(mensajePersonas, inputDeporte.nextSibling);
+        }
+         else {
             mensajePersonas.textContent = '';
         }
     }
